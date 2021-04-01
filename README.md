@@ -3,12 +3,14 @@
 <p>This file containt all CS50's projects with some extras projects that i did during the course </p>
 
 
-> ## Search
-> - Deepth First Search (**DFS**)
-> - Breadth First Search (**BFS**)
-> - Greedy Best First Search
-> - A* Search
-> - Minimax algorithm
-> ## Knowledge
-> - First Order Logic
-> - Universal Cuantification
+>
+> > ## Search
+> > - Deepth First Search (**DFS**)
+> > - Breadth First Search (**BFS**)
+> > - Greedy Best First Search
+> > - A* Search
+> > - Minimax algorithm
+>
+> > ## Knowledge
+> > - First Order Logic
+> > - Universal Cuantification
