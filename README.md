@@ -9,4 +9,6 @@
 > - Greedy Best First Search
 > - A* Search
 > - Minimax algorithm
-## Knowledge
+> ## Knowledge
+> - First Order Logic
+> - Universal Cuantification
