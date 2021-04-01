@@ -4,13 +4,18 @@
 
 
 >
-> > ## Search
-> > - Deepth First Search (**DFS**)
-> > - Breadth First Search (**BFS**)
-> > - Greedy Best First Search
-> > - A* Search
-> > - Minimax algorithm
+> ## Search
+> - Deepth First Search (**DFS**)
+> - Breadth First Search (**BFS**)
+> - Greedy Best First Search
+> - A* Search
+> - Minimax algorithm
 >
-> > ## Knowledge
-> > - First Order Logic
-> > - Universal Cuantification
+> ## Knowledge
+> - First Order Logic
+> - Universal Cuantification
+> ## Uncertainty
+> ## Optimization
+> ## Learning
+> ## Neural Networks
+> ## Language
