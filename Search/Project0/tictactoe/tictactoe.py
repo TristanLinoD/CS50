@@ -1,6 +1,7 @@
 """
 Tic Tac Toe Player
 """
+import random
 import copy
 import math
 
@@ -62,7 +63,7 @@ def result(board, action):
     if action not in actions(board):
         raise Exception('Invalid action')
     i,j = action
-    cp_board = copy.deepcopy()
+    # cp_board = copy.deepcopy()
     board[i][j] = player(board)
     return board
 
@@ -72,25 +73,47 @@ def winner(board):
     """
     Returns the winner of the game, if there is one.
     """
-    raise NotImplementedError
-
+    for i in range(3):
+        if (board[i][0] == board[i][1]) and (board[i][0]  == board[i][2]):
+            return board[i][0]
+    for j in range(3):
+        if (board[0][j] == board[1][j]) and (board[0][j]  == board[2][j]):
+            return board[0][j]
+    if (board[0][0] == board[1][1]) and (board[0][0] == board[2][2]):
+        return board[0][0]
+    elif (board[0][2] == board[1][1]) and (board[0][2] == board[2][0]):
+        return board[0][2]
+    else:
+        return None
 
 def terminal(board):
     """
     Returns True if game is over, False otherwise.
     """
-    raise NotImplementedError
+    if len(actions(board)) == 0:
+        return True
+    elif winner(board) != None:
+        return True
+    else:
+        return False
 
 
 def utility(board):
     """
     Returns 1 if X has won the game, -1 if O has won, 0 otherwise.
     """
-    raise NotImplementedError
+    w = winner(board)
+    if w == X:
+        return 1
+    elif w == O:
+        return -1
+    else:
+        return 0
 
 
 def minimax(board):
     """
     Returns the optimal action for the current player on the board.
     """
-    raise NotImplementedError
+    action = actions(board)
+    return action.pop()
