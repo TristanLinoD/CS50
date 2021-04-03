@@ -63,7 +63,7 @@ def result(board, action):
     if action not in actions(board):
         raise Exception('Invalid action')
     i,j = action
-    # cp_board = copy.deepcopy()
+    cp_board = copy.deepcopy(board)
     board[i][j] = player(board)
     return board
 
@@ -104,16 +104,49 @@ def utility(board):
     """
     w = winner(board)
     if w == X:
-        return 1
-    elif w == O:
         return -1
+    elif w == O:
+        return 1
     else:
         return 0
 
+def moveAI(board):
+    bestScore = -math.inf
+    available_movesO = actions(board)
+    for _ in range(len(available_movesO)):
+            (i,j) = available_movesO.pop()
+            board[i][j] = O
+            score = minimax(board)
+            board[i][j] = EMPTY
+            if score > bestScore:
+                bestScore = score
+                bestMove = (i,j)  # (-1|(1,0), 1|(2,0), -1|(2,2))
+    return bestMove
 
 def minimax(board):
     """
     Returns the optimal action for the current player on the board.
     """
-    action = actions(board)
-    return action.pop()
+    if terminal(board):
+        return utility(board)
+
+    if player(board) == O:  # Maximizer player
+        bestScore = -math.inf
+        available_movesO = actions(board)
+        for _ in range(len(available_movesO)):
+            (i,j) = available_movesO.pop()
+            board[i][j] = O
+            score = minimax(board)
+            board[i][j] = EMPTY
+            bestScore = max(score, bestScore)
+        return bestScore
+    else:
+        worstScore = math.inf
+        available_movesX = actions(board)
+        for _ in range(len(available_movesX)):
+            (i,j) = available_movesX.pop()
+            board[i][j] = X
+            score = minimax(board)
+            board[i][j] = EMPTY
+            worstScore = min(score, worstScore)
+        return worstScore
