@@ -63,7 +63,7 @@ def result(board, action):
     if action not in actions(board):
         raise Exception('Invalid action')
     i,j = action
-    cp_board = copy.deepcopy(board)
+    # cp_board = copy.deepcopy(board)
     board[i][j] = player(board)
     return board
 
